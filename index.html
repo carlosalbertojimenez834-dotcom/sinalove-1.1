@@ -37,23 +37,19 @@
             text-align: center;
             position: relative;
         }
-        /* Estilo para hacer el iframe del mapa responsivo */
-        .map-container {
+        /* Estilo para hacer el mapa responsivo (relación de aspecto 4:3) */
+        .map-responsive-container {
             position: relative;
-            width: 100%;
-            /* Proporción 16:9, ajustada a 400px de altura mínima */
-            height: 400px; 
-            margin-top: 2rem;
+            padding-bottom: 75%; /* 4:3 Aspect Ratio (3/4 * 100%) */
+            height: 0;
             overflow: hidden;
-            border-radius: 0.5rem;
         }
-        .map-container iframe {
+        .map-responsive-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
         }
     </style>
 </head>
@@ -72,7 +68,7 @@
     <main class="mt-[60px] md:mt-0">
         
         <!-- 1. Main Hero Section (Full Screen) -->
-        <!-- IMAGEN CARGADA: https://i.imgur.com/Xrw5Gx2.png -->
+        <!-- IMAGEN CARGADA:  -->
         <section class="full-img-container bg-gray-800" style="background-image: url('https://i.imgur.com/Xrw5Gx2.png');">
             <!-- Dark overlay for better readability -->
             <div class="absolute inset-0 bg-black opacity-40"></div>
@@ -93,10 +89,9 @@
         </section>
         
         <!-- 3. Large Image Block (Taco Sushi Fusion) -->
-        <!-- IMAGEN CARGADA: https://i.imgur.com/gaNpzoY.jpeg -->
+        <!-- IMAGEN CARGADA:  -->
         <section class="full-img-container bg-gray-900" style="background-image: url('https://i.imgur.com/gaNpzoY.jpeg'); height: 80vh;">
             <div class="absolute inset-0 bg-black opacity-30"></div>
-            <!-- The floating text box has been removed. -->
         </section>
 
         <!-- 4. Image and Text Block (Tacos) -->
@@ -111,7 +106,7 @@
                 </p>
             </div>
             <div class="md:w-1/2 order-1 md:order-2">
-                <!-- IMAGEN CARGADA: https://i.imgur.com/XYnxaRY.jpeg -->
+                <!-- IMAGEN CARGADA:  -->
                 <img src="https://i.imgur.com/XYnxaRY.jpeg" alt="Image of Gourmet Fish Tacos" class="w-full h-auto object-cover rounded-md shadow-2xl">
             </div>
         </section>
@@ -119,7 +114,7 @@
         <!-- 5. Image and Inverted Text Block (Sushi) -->
         <section class="bg-gray-800 py-12 md:py-20 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2">
-                <!-- IMAGEN CARGADA: https://i.imgur.com/d4uPGDO.jpeg -->
+                <!-- IMAGEN CARGADA:  -->
                 <img src="https://i.imgur.com/d4uPGDO.jpeg" alt="Image of Fusion Sushi Rolls" class="w-full h-auto object-cover rounded-md shadow-2xl">
             </div>
             <div class="md:w-1/2 p-6 md:p-12 mt-8 md:mt-0">
@@ -133,8 +128,8 @@
             </div>
         </section>
 
-        <!-- 6. Commitment Block (Now with Background Image) -->
-        <!-- IMAGEN CARGADA: https://i.imgur.com/xsq3gnE.jpeg -->
+        <!-- 6. Commitment Block -->
+        <!-- IMAGEN CARGADA:  -->
         <section class="full-img-container py-12 sm:py-20 text-center" style="background-image: url('https://i.imgur.com/xsq3gnE.jpeg'); height: 50vh;">
             <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay for readability -->
             <div class="relative z-10 max-w-xl mx-auto p-6">
@@ -144,48 +139,47 @@
                 <p class="text-lg font-light mb-8 text-gray-200">
                     From the perfectly seasoned sushi rice to the marinade for the taco meat. We pour our passion into every detail. This is our commitment: **a labor of love for gastronomy.**
                 </p>
-                <!-- BUTTON UPDATED: More visible with red accent color -->
-                <button class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition duration-300 uppercase tracking-widest text-sm">
+                <!-- BUTTON UPDATED: Link points to the new menu.html file -->
+                <a href="menu.html" class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition duration-300 uppercase tracking-widest text-sm">
                     VIEW FULL MENU
-                </button>
+                </a>
             </div>
         </section>
 
-        <!-- 7. LOCATION SECTION (WITH EMBEDDED GOOGLE MAPS) -->
-        <section id="location" class="bg-gray-900 py-12 px-6 text-center">
-            <h2 class="text-4xl header-font font-extrabold mb-4 text-white uppercase">FIND US</h2>
-            
-            <p class="text-2xl font-bold text-red-600 mb-2">447 Elizabeth St, Guelph, ON N1E 6C2, Canada</p>
-            
-            <!-- GOOGLE MAPS EMBED -->
-            <div class="map-container w-full max-w-4xl mx-auto">
-                <!-- 
-                    Mapa incrustado de Google Maps. 
-                    Usamos 'q' para la búsqueda de dirección y 'z=15' para un nivel de zoom adecuado.
-                -->
-                <iframe 
-                    src="https://maps.google.com/maps?q=447%20Elizabeth%20St%2C%20Guelph%2C%20ON%20N1E%206C2%2C%20Canada&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    title="Google Map showing Sinalove location">
-                </iframe>
+        <!-- 7. LOCATION SECTION (WITH INTERACTIVE MAP RESTORED) -->
+        <section id="location" class="bg-gray-900 py-12 px-6">
+            <h2 class="text-4xl header-font font-extrabold mb-8 text-white uppercase text-center">FIND US</h2>
+
+            <div class="max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden border-4 border-red-600">
+                <!-- Contenedor Responsivo para el Mapa de Google Maps -->
+                <div class="map-responsive-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.380481850772!2d-80.24497402434524!3d43.56832447108945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b9920b79339e1%3A0x6b45a4436594b238!2s447%20Elizabeth%20St%2C%20Guelph%2C%20ON%20N1E%206C2%2C%20Canada!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
 
-            <!-- Direct link to open map in a new tab -->
-            <a 
-                href="https://www.google.com/maps/search/?api=1&query=447+Elizabeth+St,+Guelph,+ON+N1E+6C2,+Canada" 
-                target="_blank" 
-                class="inline-flex items-center mt-6 bg-gray-700 text-white font-semibold py-3 px-6 rounded-full hover:bg-gray-600 transition duration-300 text-sm"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                </svg>
-                OPEN IN GOOGLE MAPS APP
-            </a>
+            <div class="text-center mt-6">
+                <p class="text-xl font-bold text-white mb-4">447 Elizabeth St, Guelph, ON N1E 6C2, Canada</p>
+                <!-- Enlace directo para obtener indicaciones en el móvil -->
+                <a 
+                    href="https://www.google.com/maps/search/?api=1&query=447+Elizabeth+St,+Guelph,+ON+N1E+6C2,+Canada" 
+                    target="_blank" 
+                    class="inline-flex items-center mt-4 bg-red-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-red-700 transition duration-300 text-sm uppercase tracking-wider"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    </svg>
+                    GET DIRECTIONS
+                </a>
+            </div>
         </section>
-
 
         <!-- 8. Footer and Contact -->
         <footer class="bg-black py-12 px-6 text-center">
@@ -227,20 +221,14 @@
     <!-- Fixed Bottom Navigation Bar (like in the video) -->
     <nav class="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-700 h-16 z-50">
         <div class="flex justify-around h-full items-center">
-            <!-- Order -->
-            <a href="#order" class="text-white flex flex-col items-center text-xs font-medium opacity-80 hover:opacity-100 transition">
+            <!-- NEW: Menu Button -->
+            <a href="menu.html" class="text-white flex flex-col items-center text-xs font-medium opacity-80 hover:opacity-100 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-                <span>Order</span>
+                <span>Menu</span>
             </a>
-            <!-- Reserve -->
-            <a href="#reserve" class="text-white flex flex-col items-center text-xs font-medium opacity-80 hover:opacity-100 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span>Reserve</span>
-            </a>
+            
             <!-- Call - PHONE NUMBER UPDATED IN href AND text -->
             <a href="tel:+15198291051" class="text-white flex flex-col items-center text-xs font-medium opacity-80 hover:opacity-100 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
